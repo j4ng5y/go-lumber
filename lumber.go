@@ -28,8 +28,8 @@ func New() *Lumber {
 	return &Lumber{
 		DebugLog: log.New(os.Stdout, "[DEBUG] ", log.Ldate|log.Ltime|log.Lshortfile),
 		InfoLog:  log.New(os.Stdout, "[INFO] ", log.Ldate|log.Ltime|log.Lshortfile),
-		WarnLog:  log.New(os.Stdout, "[INFO] ", log.Ldate|log.Ltime|log.Lshortfile),
-		ErrorLog: log.New(os.Stdout, "[INFO] ", log.Ldate|log.Ltime|log.Lshortfile),
+		WarnLog:  log.New(os.Stdout, "[WARN] ", log.Ldate|log.Ltime|log.Lshortfile),
+		ErrorLog: log.New(os.Stdout, "[ERROR] ", log.Ldate|log.Ltime|log.Lshortfile),
 		FatalLog: log.New(os.Stdout, "[FATAL] ", log.Ldate|log.Ltime|log.Lshortfile),
 	}
 }
@@ -51,54 +51,4 @@ func (L Lumber) SetLogFile(filename string, l *log.Logger) error {
 
 	l.SetOutput(f)
 	return nil
-}
-
-// Debug takes a message and logs that message
-func (L Lumber) Debug(msg string) {
-	L.DebugLog.Println(msg)
-}
-
-// Debugf takes a formatted message and logs that message
-func (L Lumber) Debugf(format string, v ...interface{}) {
-	L.DebugLog.Printf(format, v...)
-}
-
-// Info takes a message and logs that message
-func (L Lumber) Info(msg string) {
-	L.InfoLog.Println(msg)
-}
-
-// Infof takes a formatted message and logs that message
-func (L Lumber) Infof(format string, v ...interface{}) {
-	L.InfoLog.Printf(format, v...)
-}
-
-// Warn takes a message and logs that message as a warning message
-func (L Lumber) Warn(msg string) {
-	L.WarnLog.Println(msg)
-}
-
-// Warnf takes a formatted message and logs that message
-func (L Lumber) Warnf(format string, v ...interface{}) {
-	L.WarnLog.Printf(format, v...)
-}
-
-// Error takes a message and logs that message as a erronious message
-func (L Lumber) Error(msg string) {
-	L.ErrorLog.Println(msg)
-}
-
-// Errorf takes a formatted message and logs that message
-func (L Lumber) Errorf(format string, v ...interface{}) {
-	L.ErrorLog.Printf(format, v...)
-}
-
-// Fatal tages a message and logs that message as a fatal message
-func (L Lumber) Fatal(msg string) {
-	L.FatalLog.Fatal(msg)
-}
-
-// Fatalf takes a formatted message and logs that message
-func (L Lumber) Fatalf(format string, v ...interface{}) {
-	L.FatalLog.Printf(format, v...)
 }
