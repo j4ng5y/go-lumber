@@ -54,8 +54,8 @@ func (L Lumber) SetLogFile(filename string, l *log.Logger) error {
 }
 
 // Debug takes a message and logs that message
-func (L Lumber) Debug(msg interface{}) {
-	L.DebugLog.Println(msg.(string))
+func (L Lumber) Debug(msg string) {
+	L.DebugLog.Println(msg)
 }
 
 // Debugf takes a formatted message and logs that message
@@ -64,8 +64,8 @@ func (L Lumber) Debugf(format string, v ...interface{}) {
 }
 
 // Info takes a message and logs that message
-func (L Lumber) Info(msg interface{}) {
-	L.InfoLog.Println(msg.(string))
+func (L Lumber) Info(msg string) {
+	L.InfoLog.Println(msg)
 }
 
 // Infof takes a formatted message and logs that message
@@ -74,8 +74,8 @@ func (L Lumber) Infof(format string, v ...interface{}) {
 }
 
 // Warn takes a message and logs that message as a warning message
-func (L Lumber) Warn(msg interface{}) {
-	L.WarnLog.Println(msg.(string))
+func (L Lumber) Warn(msg string) {
+	L.WarnLog.Println(msg)
 }
 
 // Warnf takes a formatted message and logs that message
@@ -84,8 +84,8 @@ func (L Lumber) Warnf(format string, v ...interface{}) {
 }
 
 // Error takes a message and logs that message as a erronious message
-func (L Lumber) Error(msg interface{}) {
-	L.ErrorLog.Println(msg.(string))
+func (L Lumber) Error(msg string) {
+	L.ErrorLog.Println(msg)
 }
 
 // Errorf takes a formatted message and logs that message
@@ -94,8 +94,8 @@ func (L Lumber) Errorf(format string, v ...interface{}) {
 }
 
 // Fatal tages a message and logs that message as a fatal message
-func (L Lumber) Fatal(msg interface{}) {
-	L.FatalLog.Fatal(msg.(string))
+func (L Lumber) Fatal(msg string) {
+	L.FatalLog.Fatal(msg)
 }
 
 // Fatalf takes a formatted message and logs that message
