@@ -58,9 +58,19 @@ func (L Lumber) Debug(msg interface{}) {
 	L.DebugLog.Println(msg.(string))
 }
 
+// Debugf takes a formatted message and logs that message
+func (L Lumber) Debugf(format string, v ...interface{}) {
+	L.DebugLog.Printf(format, v...)
+}
+
 // Info takes a message and logs that message
 func (L Lumber) Info(msg interface{}) {
 	L.InfoLog.Println(msg.(string))
+}
+
+// Infof takes a formatted message and logs that message
+func (L Lumber) Infof(format string, v ...interface{}) {
+	L.InfoLog.Printf(format, v...)
 }
 
 // Warn takes a message and logs that message as a warning message
@@ -68,12 +78,27 @@ func (L Lumber) Warn(msg interface{}) {
 	L.WarnLog.Println(msg.(string))
 }
 
+// Warnf takes a formatted message and logs that message
+func (L Lumber) Warnf(format string, v ...interface{}) {
+	L.WarnLog.Printf(format, v...)
+}
+
 // Error takes a message and logs that message as a erronious message
 func (L Lumber) Error(msg interface{}) {
 	L.ErrorLog.Println(msg.(string))
 }
 
+// Errorf takes a formatted message and logs that message
+func (L Lumber) Errorf(format string, v ...interface{}) {
+	L.ErrorLog.Printf(format, v...)
+}
+
 // Fatal tages a message and logs that message as a fatal message
 func (L Lumber) Fatal(msg interface{}) {
 	L.FatalLog.Fatal(msg.(string))
+}
+
+// Fatalf takes a formatted message and logs that message
+func (L Lumber) Fatalf(format string, v ...interface{}) {
+	L.FatalLog.Printf(format, v...)
 }
