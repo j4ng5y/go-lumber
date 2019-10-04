@@ -1,5 +1,7 @@
 package lumber
 
+import "fmt"
+
 // Warn takes a message string and logs that message as a warning message
 //
 // Arguements:
@@ -9,6 +11,11 @@ package lumber
 //     None
 func (L Lumber) Warn(msg string) {
 	L.WarnLog.Print(msg)
+
+	// If file logging is set, also log to the file
+	if L.WarnFileLogger != nil {
+		L.WarnFileLogger.Println(msg)
+	}
 }
 
 // Warnln takes a message string and logs that message with a newline inluded
@@ -20,6 +27,11 @@ func (L Lumber) Warn(msg string) {
 //     None
 func (L Lumber) Warnln(msg string) {
 	L.WarnLog.Println(msg)
+
+	// If file logging is set, also log to the file
+	if L.WarnFileLogger != nil {
+		L.WarnFileLogger.Println(msg)
+	}
 }
 
 // Warnf takes a formatted message string and logs that message as a warning message
@@ -32,4 +44,9 @@ func (L Lumber) Warnln(msg string) {
 //     None
 func (L Lumber) Warnf(format string, v ...interface{}) {
 	L.WarnLog.Printf(format, v...)
+
+	// If file logging is set, also log to the file
+	if L.WarnFileLogger != nil {
+		L.WarnFileLogger.Println(fmt.Sprintf(format, v...))
+	}
 }

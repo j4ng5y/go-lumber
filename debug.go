@@ -1,5 +1,7 @@
 package lumber
 
+import "fmt"
+
 // Debug takes a message string and logs that message
 //
 // Arguements:
@@ -9,6 +11,11 @@ package lumber
 //     None
 func (L Lumber) Debug(msg string) {
 	L.DebugLog.Print(msg)
+
+	// If file logging is set, also log to the file
+	if L.DebugFileLogger != nil {
+		L.DebugFileLogger.Println(msg)
+	}
 }
 
 // Debugln takes a message string and logs that message with a newline inluded
@@ -20,6 +27,11 @@ func (L Lumber) Debug(msg string) {
 //     None
 func (L Lumber) Debugln(msg string) {
 	L.DebugLog.Println(msg)
+
+	// If file logging is set, also log to the file
+	if L.DebugFileLogger != nil {
+		L.DebugFileLogger.Println(msg)
+	}
 }
 
 // Debugf takes a formatted message string and logs that message as a debug message
@@ -32,4 +44,9 @@ func (L Lumber) Debugln(msg string) {
 //     None
 func (L Lumber) Debugf(format string, v ...interface{}) {
 	L.DebugLog.Printf(format, v...)
+
+	// If file logging is set, also log to the file
+	if L.DebugFileLogger != nil {
+		L.DebugFileLogger.Println(fmt.Sprintf(format, v...))
+	}
 }

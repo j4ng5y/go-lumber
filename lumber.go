@@ -3,17 +3,23 @@
 package lumber
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
 
 // Lumber is a struct to hold loggers
 type Lumber struct {
-	DebugLog *log.Logger
-	InfoLog  *log.Logger
-	WarnLog  *log.Logger
-	ErrorLog *log.Logger
-	FatalLog *log.Logger
+	DebugLog        *log.Logger
+	DebugFileLogger *log.Logger
+	InfoLog         *log.Logger
+	InfoFileLogger  *log.Logger
+	WarnLog         *log.Logger
+	WarnFileLogger  *log.Logger
+	ErrorLog        *log.Logger
+	ErrorFileLogger *log.Logger
+	FatalLog        *log.Logger
+	FatalFileLogger *log.Logger
 }
 
 // New returns a new instance of Lumber
@@ -42,13 +48,59 @@ func New() *Lumber {
 //
 // Returns:
 //    (error): an error if one exists, nil otherwise
-func (L Lumber) SetLogFile(filename string, l *log.Logger) error {
+func (L Lumber) SetLogFile(logLevel string, filename string) error {
+	validLogLevels := []string{
+		"debug",
+		"info",
+		"warn",
+		"error",
+		"fatal",
+	}
+	switch logLevel {
+	case validLogLevels[0]:
+		f, err := getFile(filename)
+		if err != nil {
+			return err
+		}
+		L.DebugFileLogger = log.New(f, "[DEBUG] ", log.Ldate|log.Ltime|log.Lshortfile)
+		return nil
+	case validLogLevels[1]:
+		f, err := getFile(filename)
+		if err != nil {
+			return err
+		}
+		L.InfoFileLogger = log.New(f, "[INFO] ", log.Ldate|log.Ltime|log.Lshortfile)
+		return nil
+	case validLogLevels[2]:
+		f, err := getFile(filename)
+		if err != nil {
+			return err
+		}
+		L.WarnFileLogger = log.New(f, "[WARN] ", log.Ldate|log.Ltime|log.Lshortfile)
+		return nil
+	case validLogLevels[3]:
+		f, err := getFile(filename)
+		if err != nil {
+			return err
+		}
+		L.ErrorFileLogger = log.New(f, "[ERROR] ", log.Ldate|log.Ltime|log.Lshortfile)
+		return nil
+	case validLogLevels[4]:
+		f, err := getFile(filename)
+		if err != nil {
+			return err
+		}
+		L.FatalFileLogger = log.New(f, "[FATAL] ", log.Ldate|log.Ltime|log.Lshortfile)
+		return nil
+	default:
+		return fmt.Errorf("%s is not a valid log level, must be one of: %v", logLevel, validLogLevels)
+	}
+}
+
+func getFile(filename string) (*os.File, error) {
 	f, err := os.Open(filename)
 	if err != nil {
-		return err
+		return nil, err
 	}
-	defer f.Close()
-
-	l.SetOutput(f)
-	return nil
+	return f, nil
 }

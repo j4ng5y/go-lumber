@@ -1,5 +1,7 @@
 package lumber
 
+import "fmt"
+
 // Error takes a message string and logs that message as a erronious message
 //
 // Arguements:
@@ -9,6 +11,11 @@ package lumber
 //     None
 func (L Lumber) Error(msg string) {
 	L.ErrorLog.Print(msg)
+
+	// If file logging is set, also log to the file
+	if L.ErrorFileLogger != nil {
+		L.ErrorFileLogger.Println(msg)
+	}
 }
 
 // Errorln takes a message string and logs that message with a newline inluded
@@ -20,6 +27,11 @@ func (L Lumber) Error(msg string) {
 //     None
 func (L Lumber) Errorln(msg string) {
 	L.ErrorLog.Println(msg)
+
+	// If file logging is set, also log to the file
+	if L.ErrorFileLogger != nil {
+		L.ErrorFileLogger.Println(msg)
+	}
 }
 
 // Errorf takes a formatted message string and logs that message as an erronious message
@@ -32,4 +44,9 @@ func (L Lumber) Errorln(msg string) {
 //     None
 func (L Lumber) Errorf(format string, v ...interface{}) {
 	L.ErrorLog.Printf(format, v...)
+
+	// If file logging is set, also log to the file
+	if L.ErrorFileLogger != nil {
+		L.ErrorFileLogger.Println(fmt.Sprintf(format, v...))
+	}
 }
