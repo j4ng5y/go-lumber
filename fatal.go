@@ -10,7 +10,7 @@ import "fmt"
 
 // Fatal takes a message string and logs that message as a fatal message
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -26,7 +26,7 @@ func (L Lumber) Fatal(msg string) {
 
 // Fatalln takes a message string and logs that message as a fatal message with a newline inluded
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -42,7 +42,7 @@ func (L Lumber) Fatalln(msg string) {
 
 // Fatalf takes a formatted message string and logs that message as a fatal message
 //
-// Arguements:
+// Arguments:
 //     format (string): The formatted message to log
 //     v (...interface{}): any number of variables to use to format the message
 //

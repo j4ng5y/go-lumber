@@ -10,7 +10,7 @@ import "fmt"
 
 // Debug takes a message string and logs that message
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -26,7 +26,7 @@ func (L Lumber) Debug(msg string) {
 
 // Debugln takes a message string and logs that message with a newline inluded
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -42,7 +42,7 @@ func (L Lumber) Debugln(msg string) {
 
 // Debugf takes a formatted message string and logs that message as a debug message
 //
-// Arguements:
+// Arguments:
 //     format (string): The formatted message to log
 //     v (...interface{}): any number of variables to use to format the message
 //

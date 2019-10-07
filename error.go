@@ -10,7 +10,7 @@ import "fmt"
 
 // Error takes a message string and logs that message as a erronious message
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -26,7 +26,7 @@ func (L Lumber) Error(msg string) {
 
 // Errorln takes a message string and logs that message with a newline inluded
 //
-// Arguements:
+// Arguments:
 //     msg (string): The message to log
 //
 // Returns:
@@ -42,7 +42,7 @@ func (L Lumber) Errorln(msg string) {
 
 // Errorf takes a formatted message string and logs that message as an erronious message
 //
-// Arguements:
+// Arguments:
 //     format (string): The formatted message to log
 //     v (...interface{}): any number of variables to use to format the message
 //

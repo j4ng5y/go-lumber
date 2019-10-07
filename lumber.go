@@ -31,7 +31,7 @@ type Lumber struct {
 // New returns a new instance of Lumber
 // This default behaviour will log everything to STDOUT
 //
-// Arguemnts:
+// Arguments:
 //    None
 //
 // Returns:
@@ -48,7 +48,7 @@ func New() *Lumber {
 
 // SetLogFile will set a log file for the provided logger
 //
-// Arguements:
+// Arguments:
 //     filename (string): the name of the file to write
 //     l (*log.Logger): the lumber logger to set this output file for
 //
