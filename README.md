@@ -1,4 +1,5 @@
 # Go-Lumber
+!["Go Report Card"](https://goreportcard.com/badge/github.com/j4ng5y/go-lumber)
 
 Go lumber is a simple, yet opinionated little logging library that I seem to write into a lot of my packages, so I decided to make it a library instead of re-writing it every time.
 
