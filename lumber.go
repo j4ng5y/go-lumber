@@ -1,5 +1,11 @@
 // lumber is a highly optinionated logging package for Go that I seem to use in all of my packages so, it was time to make it a module.
 
+// Copyright 2019 Jordan Gregory (https://github.com/j4ng5y)
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// http://www.apache.org/licenses/LICENSE-2.0
+
 package lumber
 
 import (
