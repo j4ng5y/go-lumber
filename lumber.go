@@ -1,4 +1,4 @@
-// lumber is a highly optinionated logging package for Go that I seem to use in all of my packages so, it was time to make it a module
+// lumber is a highly optinionated logging package for Go that I seem to use in all of my packages so, it was time to make it a module.
 
 package lumber
 
