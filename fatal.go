@@ -32,7 +32,7 @@ func (L Lumber) Fatal(msg string) {
 // Returns:
 //     None
 func (L Lumber) Fatalln(msg string) {
-	L.DebugLog.Fatalln(msg)
+	L.FatalLog.Fatalln(msg)
 
 	// If file logging is set, also log to the file
 	if L.FatalFileLogger != nil {
