@@ -1,5 +1,5 @@
 # Go-Lumber
-!["Go Report Card"](https://goreportcard.com/badge/github.com/j4ng5y/go-lumber)
+!["Go Report Card"](https://goreportcard.com/badge/github.com/j4ng5y/go-lumber) [![Maintainability](https://api.codeclimate.com/v1/badges/7ae42c9b94509cb7d551/maintainability)](https://codeclimate.com/github/j4ng5y/go-lumber/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/7ae42c9b94509cb7d551/test_coverage)](https://codeclimate.com/github/j4ng5y/go-lumber/test_coverage)
 
 Go lumber is a simple, yet opinionated little logging library that I seem to write into a lot of my packages, so I decided to make it a library instead of re-writing it every time.
 
