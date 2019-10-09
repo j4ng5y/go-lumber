@@ -1,0 +1,23 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    steps:
+      - checkout
+      - run:
+          name: Pull Dependencies
+          command: |
+            go get -v -t -d ./...
+      - run:
+          name: Setup CodeClimate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Run Tests
+          command: |
+            ./cc-test-reporter before-build
+            go test ./... -race -coverprofile cover.out
+            ./cc-test-reporter after-build
