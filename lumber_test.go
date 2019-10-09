@@ -8,10 +8,9 @@ import (
 	"github.com/matryer/is"
 )
 
-var T = New()
-
 func Test_New(t *testing.T) {
 	is := is.New(t)
+	T := New()
 
 	is.True(T.DebugLog != nil)
 	is.True(T.InfoLog != nil)
@@ -27,6 +26,7 @@ func Test_New(t *testing.T) {
 
 func Test_SetLogFile(t *testing.T) {
 	is := is.New(t)
+	T := New()
 
 	files := map[string]string{
 		"debug": "./debug.test.log",
@@ -46,7 +46,16 @@ func Test_SetLogFile(t *testing.T) {
 
 	err := T.SetLogFile("this_does_not_exist", "./this_file_should_not_exist.log")
 	is.True(strings.Contains(err.Error(), "this_does_not_exist is not a valid log level"))
-	is.True(!checkFileExists("./this_file_should_not_exist.log", t))
+	is.True(checkFileExists("./this_file_should_not_exist.log", t) != true)
+
+	for k := range files {
+		_, err := os.OpenFile("/temp.log", os.O_CREATE|os.O_RDONLY, 0400)
+		if err != nil {
+			t.Log(err)
+		}
+		err = T.SetLogFile(k, "/temp.log")
+		is.True(err != nil)
+	}
 }
 
 func checkFileExists(filename string, t *testing.T) bool {
