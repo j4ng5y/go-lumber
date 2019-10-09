@@ -1,5 +1,5 @@
 # Go-Lumber
-!["Photo by Dominika Roseclay from Pexels"](https://images.pexels.com/photos/1239420/pexels-photo-1239420.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+!["Photo by Dominika Roseclay from Pexels"](https://images.pexels.com/photos/1239420/pexels-photo-1239420.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=1260)
 
 !["Go Report Card"](https://goreportcard.com/badge/github.com/j4ng5y/go-lumber) [![Maintainability](https://api.codeclimate.com/v1/badges/7ae42c9b94509cb7d551/maintainability)](https://codeclimate.com/github/j4ng5y/go-lumber/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/7ae42c9b94509cb7d551/test_coverage)](https://codeclimate.com/github/j4ng5y/go-lumber/test_coverage)
 
