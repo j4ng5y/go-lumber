@@ -104,7 +104,7 @@ func (L Lumber) SetLogFile(logLevel string, filename string) error {
 }
 
 func getFile(filename string) (*os.File, error) {
-	f, err := os.Open(filename)
+	f, err := os.Create(filename)
 	if err != nil {
 		return nil, err
 	}
