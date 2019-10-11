@@ -6,17 +6,22 @@
 
 package lumber
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // Fatal takes a message string and logs that message as a fatal message
 //
 // Arguments:
-//     msg (string): The message to log
+//     msg (string):   The message to log
+//     exitCode (int): The exit code to exit the application with
 //
 // Returns:
 //     None
-func (L Lumber) Fatal(msg string) {
-	L.FatalLog.Fatal(msg)
+func (L Lumber) Fatal(msg string, exitCode int) {
+	L.FatalLog.Print(msg)
+	os.Exit(exitCode)
 
 	// If file logging is set, also log to the file
 	if L.FatalFileLogger != nil {
@@ -27,12 +32,14 @@ func (L Lumber) Fatal(msg string) {
 // Fatalln takes a message string and logs that message as a fatal message with a newline inluded
 //
 // Arguments:
-//     msg (string): The message to log
+//     msg (string):   The message to log
+//     exitCode (int): The exit code to exit the application with
 //
 // Returns:
 //     None
-func (L Lumber) Fatalln(msg string) {
-	L.FatalLog.Fatalln(msg)
+func (L Lumber) Fatalln(msg string, exitCode int) {
+	L.FatalLog.Println(msg)
+	os.Exit(exitCode)
 
 	// If file logging is set, also log to the file
 	if L.FatalFileLogger != nil {
@@ -43,13 +50,15 @@ func (L Lumber) Fatalln(msg string) {
 // Fatalf takes a formatted message string and logs that message as a fatal message
 //
 // Arguments:
-//     format (string): The formatted message to log
-//     v (...interface{}): any number of variables to use to format the message
+//     exitCode (int):     The exit code to exit the application with
+//     format (string):    The formatted message to log
+//     v (...interface{}): Any number of variables to use to format the message
 //
 // Returns:
 //     None
-func (L Lumber) Fatalf(format string, v ...interface{}) {
-	L.FatalLog.Fatalf(format, v...)
+func (L Lumber) Fatalf(exitCode int, format string, v ...interface{}) {
+	L.FatalLog.Printf(format, v...)
+	os.Exit(exitCode)
 
 	// If file logging is set, also log to the file
 	if L.FatalFileLogger != nil {
